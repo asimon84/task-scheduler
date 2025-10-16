@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('string')->nullable(true)->default(null);
-            $table->text('text')->nullable(true)->default(null);
+            $table->string('name')->nullable(true)->default(null);
+            $table->text('description')->nullable(true)->default(null);
             $table->softDeletes();
             $table->timestamps();
         });
