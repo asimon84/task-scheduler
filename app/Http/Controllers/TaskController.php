@@ -14,6 +14,6 @@ class TaskController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function index(Request $request) {
-        return view('dashboard', []);
+        return view('tasks', []);
     }
 }
