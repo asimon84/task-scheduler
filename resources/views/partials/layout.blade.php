@@ -21,5 +21,7 @@
     @include('partials.navbar')
 
     @yield('content')
+
+    @csrf
 </body>
 </html>
