@@ -18,8 +18,9 @@ Route::delete('/project/{id}', [ProjectController::class, 'delete'])->name('proj
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
 Route::get('/tasks/table', [TaskController::class, 'getTable'])->name('tasks.get-table');
+Route::post('/task', [TaskController::class, 'create'])->name('task.create');
 Route::get('/task/{id}', [TaskController::class, 'show'])->name('task.show');
 Route::put('/task/{id}', [TaskController::class, 'edit'])->name('task.update');
 Route::patch('/task/{id}', [TaskController::class, 'edit'])->name('task.update');
-Route::post('/task/{id}', [TaskController::class, 'create'])->name('task.create');
+Route::post('/task/{id}', [TaskController::class, 'edit'])->name('task.update');
 Route::delete('/task/{id}', [TaskController::class, 'delete'])->name('task.delete');

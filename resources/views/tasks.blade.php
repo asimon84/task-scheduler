@@ -24,7 +24,7 @@
 
         <!-- Buttons -->
         <div class="d-flex justify-content-end">
-            <input type="button" class="btn btn-primary" value="Create New Task"/>
+            <input type="button" class="btn btn-primary" id="create-button" value="Create New Task"/>
         </div>
 
         <!-- Tasks -->

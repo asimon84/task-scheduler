@@ -58,8 +58,20 @@ class TaskController extends Controller
         return Task::find($id)->toJSON();
     }
 
+    /**
+     * Creaet new task and return success or failure
+     *
+     * @param Request $request
+     *
+     * @return bool
+     */
     public function create(Request $request) {
+        $record = new Task();
 
+        $record->name = $request->input('name');
+        $record->description = $request->input('description');
+
+        return $record->save();
     }
 
     /**

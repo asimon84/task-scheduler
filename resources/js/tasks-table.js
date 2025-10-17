@@ -1,3 +1,9 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('input[name="_token"]').val()
+    }
+});
+
 new DataTable('#tasksTable', {
     processing: true,
     serverSide: true,
@@ -11,6 +17,21 @@ new DataTable('#tasksTable', {
 });
 
 new bootstrap.Modal(document.getElementById('taskModal'));
+
+$.callCreateModal = function () {
+    var modalId = $('#task-modal-id');
+    var modalName = $('#task-modal-name');
+    var modalDescription = $('#task-modal-description');
+
+    modalName.prop('disabled', false);
+    modalDescription.prop('disabled', false);
+
+    modalId.val('');
+    modalName.val('');
+    modalDescription.val('');
+
+    $('#taskModal').modal('show');
+};
 
 $.callModal = function (id, disabled) {
     var modalId = $('#task-modal-id');
@@ -40,11 +61,25 @@ $.callModal = function (id, disabled) {
     });
 };
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-    }
-});
+$.createRecord = function () {
+    $.ajax({
+        url: '/task/' + $('#task-modal-id').val(),
+        type: "POST",
+        dataType: 'json',
+        data: {
+            name: $('#task-modal-name').val(),
+            description: $('#task-modal-description').val()
+        },
+        success: function (data) {
+            // console.log('Data received:', data);
+            $('#taskModal').modal('hide');
+            $('#tasksTable').DataTable().draw();
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error('AJAX error:', textStatus, errorThrown);
+        }
+    });
+};
 
 $.editRecord = function () {
     $.ajax({
@@ -81,6 +116,11 @@ $.deleteRecord = function (id, table, tr) {
     });
 };
 
+$(document).on('click', '#create-button', function () {
+    $('#save-button').show();
+    $.callCreateModal();
+});
+
 $(document).on('click', '.view-record', function () {
     $('#save-button').hide();
     $.callModal($(this).data('id'), true);
@@ -92,7 +132,20 @@ $(document).on('click', '.edit-record', function () {
 });
 
 $(document).on('click', '#save-button', function () {
-    $.editRecord();
+    var modalId = $('#task-modal-id');
+
+    if(modalId.val().length === 0) {
+        var modalName = $('#task-modal-name');
+        var modalDescription = $('#task-modal-description');
+
+        if(modalName.val().length === 0 || modalDescription.val().length === 0) {
+            alert('Please enter a name and description for this task.')
+        } else {
+            $.createRecord();
+        }
+    } else {
+        $.editRecord();
+    }
 });
 
 $(document).on('click', '.delete-record', function () {
