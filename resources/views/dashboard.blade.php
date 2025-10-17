@@ -12,6 +12,7 @@
     </script>
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+
     @vite('resources/js/dashboard.js')
 @endpush
 
@@ -25,7 +26,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th width="100px">Action</th>
+                <th width="100px">Actions</th>
             </tr>
             </thead>
             <tbody>

@@ -29,18 +29,18 @@ class ProjectController extends Controller
     public function getTable(Request $request) {
         return DataTables::of(Project::all())
             ->addIndexColumn()
-            ->addColumn('action', function($row){
+            ->addColumn('actions', function($row){
                 $buttons = '<div style="width: 130px;">';
 
                 $buttons .= '<button type="button" class="btn btn-info view-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-search"></i></button>';
-                $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-pencil"></i></button>';
+//                $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-pencil"></i></button>';
                 $buttons .= '<button type="button" class="btn btn-danger delete-record" data-id='.$row->id.'><i class="bi bi-trash"></i></button>';
 
                 $buttons .= '</div>';
 
                 return $buttons;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['actions'])
             ->make(true);
     }
 }
