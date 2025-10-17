@@ -7,7 +7,12 @@
 @endpush
 
 @push('scripts')
+    <script>
+        window.route = "{{ route('projects.get') }}";
+    </script>
+
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    @vite('resources/js/dashboard.js')
 @endpush
 
 @section('content')
@@ -17,4 +22,3 @@
 
     </div>
 @endsection
-
