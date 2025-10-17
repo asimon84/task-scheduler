@@ -13,7 +13,32 @@ class TaskSeeder extends Seeder
     public function run(): void
     {
         Task::factory()->create([
-            'name' => 'Test Task',
+            'name' => 'Test Task 1',
+            'description' => 'This is an example task for testing.',
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Test Task 2',
+            'description' => 'This is an example task for testing.',
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Test Task 3',
+            'description' => 'This is an example task for testing.',
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Test Task 4',
+            'description' => 'This is an example task for testing.',
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Test Task 5',
+            'description' => 'This is an example task for testing.',
+        ]);
+
+        Task::factory()->create([
+            'name' => 'Test Task 6',
             'description' => 'This is an example task for testing.',
         ]);
     }

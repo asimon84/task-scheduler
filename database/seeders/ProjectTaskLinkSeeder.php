@@ -16,5 +16,30 @@ class ProjectTaskLinkSeeder extends Seeder
             'project_id' => 1,
             'task_id' => 1
         ]);
+
+        ProjectTaskLink::factory()->create([
+            'project_id' => 1,
+            'task_id' => 2
+        ]);
+
+        ProjectTaskLink::factory()->create([
+            'project_id' => 1,
+            'task_id' => 3
+        ]);
+
+        ProjectTaskLink::factory()->create([
+            'project_id' => 2,
+            'task_id' => 4
+        ]);
+
+        ProjectTaskLink::factory()->create([
+            'project_id' => 3,
+            'task_id' => 5
+        ]);
+
+        ProjectTaskLink::factory()->create([
+            'project_id' => 3,
+            'task_id' => 6
+        ]);
     }
 }

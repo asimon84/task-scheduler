@@ -11,6 +11,10 @@
 @endpush
 
 @section('content')
-    DASHBOARD
+    <div>
+        <h3>Dashboard</h3>
+
+
+    </div>
 @endsection
 
