@@ -22,6 +22,8 @@
     @stack('scripts')
 </head>
 <body class="font-sans antialiased">
+    @include('partials.navbar')
+
     @yield('content')
 </body>
 </html>
