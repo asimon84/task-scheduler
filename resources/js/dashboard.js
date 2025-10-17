@@ -6,6 +6,6 @@ new DataTable('#projectsTable', {
         {data: 'id', name: 'id', searchable: true},
         {data: 'name', name: 'string', searchable: true},
         {data: 'description', name: 'text', className: 'truncate-text', searchable: true},
-        {data: 'action', name: 'action', orderable: false, searchable: false},
+        {data: 'action', name: 'action', orderable: false, searchable: false}
     ]
 });

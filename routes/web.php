@@ -9,6 +9,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects.get');
+Route::get('/projects/table', [ProjectController::class, 'getTable'])->name('projects.get-table');
 Route::get('/project/{id}', [ProjectController::class, 'show'])->name('project.show');
 Route::put('/project/{id}', [ProjectController::class, 'edit'])->name('project.update');
 Route::post('/project/{id}', [ProjectController::class, 'edit'])->name('project.update');
