@@ -20,7 +20,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Get data for projects table on Dashboard page
+     * Get data for projects table
      *
      * @param Request $request
      *
@@ -33,7 +33,7 @@ class ProjectController extends Controller
                 $buttons = '<div style="width: 130px;">';
 
                 $buttons .= '<button type="button" class="btn btn-info view-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-search"></i></button>';
-//                $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-pencil"></i></button>';
+                $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#recordModal" data-id='.$row->id.'><i class="bi bi-pencil"></i></button>';
                 $buttons .= '<button type="button" class="btn btn-danger delete-record" data-id='.$row->id.'><i class="bi bi-trash"></i></button>';
 
                 $buttons .= '</div>';
