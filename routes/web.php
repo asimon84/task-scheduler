@@ -17,6 +17,7 @@ Route::patch('/project/{id}', [ProjectController::class, 'edit'])->name('project
 Route::delete('/project/{id}', [ProjectController::class, 'delete'])->name('project.delete');
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+Route::get('/tasks/table', [TaskController::class, 'getTable'])->name('tasks.get-table');
 Route::get('/task/{id}', [TaskController::class, 'show'])->name('task.show');
 Route::put('/task/{id}', [TaskController::class, 'edit'])->name('task.update');
 Route::post('/task/{id}', [TaskController::class, 'edit'])->name('task.update');
