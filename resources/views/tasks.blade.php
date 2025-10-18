@@ -59,13 +59,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="bold">String:</td>
+                                <td class="bold">Name:</td>
                                 <td>
                                     <input type="text" id="task-modal-name" name="task-modal-name" disabled value=""/>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="bold">Text:</td>
+                                <td class="bold">Description:</td>
                                 <td>
                                 <textarea type="text" id="task-modal-description" name="task-modal-description" disabled>
                                     &nbsp;
