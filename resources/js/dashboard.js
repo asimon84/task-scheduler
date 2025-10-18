@@ -72,8 +72,8 @@ $.createRecord = function () {
         },
         success: function (data) {
             // console.log('Data received:', data);
-            $('#taskModal').modal('hide');
-            $('#tasksTable').DataTable().draw();
+            $('#projectModal').modal('hide');
+            $('#projectsTable').DataTable().draw();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('AJAX error:', textStatus, errorThrown);
@@ -122,8 +122,7 @@ $(document).on('click', '#create-button', function () {
 });
 
 $(document).on('click', '.view-record', function () {
-    $('#save-button').hide();
-    $.callModal($(this).data('id'), true);
+    window.location = '/project/'+$(this).data('id');
 });
 
 $(document).on('click', '.edit-record', function () {
@@ -132,14 +131,14 @@ $(document).on('click', '.edit-record', function () {
 });
 
 $(document).on('click', '#save-button', function () {
-    var modalId = $('#task-modal-id');
+    var modalId = $('#project-modal-id');
 
     if(modalId.val().length === 0) {
-        var modalName = $('#task-modal-name');
-        var modalDescription = $('#task-modal-description');
+        var modalName = $('#project-modal-name');
+        var modalDescription = $('#project-modal-description');
 
         if(modalName.val().length === 0 || modalDescription.val().length === 0) {
-            alert('Please enter a name and description for this task.')
+            alert('Please enter a name and description for this project.')
         } else {
             $.createRecord();
         }
@@ -149,5 +148,5 @@ $(document).on('click', '#save-button', function () {
 });
 
 $(document).on('click', '.delete-record', function () {
-    $.deleteRecord($(this).data('id'), $('#tasksTable'), $(this).closest('tr'));
+    $.deleteRecord($(this).data('id'), $('#projectsTable'), $(this).closest('tr'));
 });

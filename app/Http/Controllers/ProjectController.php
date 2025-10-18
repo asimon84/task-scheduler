@@ -34,7 +34,7 @@ class ProjectController extends Controller
             ->addColumn('actions', function($row){
                 $buttons = '<div style="width: 130px;">';
 
-                $buttons .= '<button type="button" class="btn btn-info view-record"><i class="bi bi-search" data-id="'.$row->id.'"></i></button>';
+                $buttons .= '<button type="button" class="btn btn-info view-record" data-id="'.$row->id.'"><i class="bi bi-search"></i></button>';
                 $buttons .= '<button type="button" class="btn btn-success edit-record" data-bs-toggle="modal" data-bs-target="#projectModal" data-id="'.$row->id.'"><i class="bi bi-pencil"></i></button>';
                 $buttons .= '<button type="button" class="btn btn-danger delete-record" data-id="'.$row->id.'"><i class="bi bi-trash"></i></button>';
 
