@@ -1,9 +1,9 @@
 @extends('partials.layout')
 
-@section('title', 'Projects')
+@section('title', 'Dashboard')
 
 @push('styles')
-@vite('resources/css/projects.css')
+@vite('resources/css/dashboard.css')
 @endpush
 
 @push('scripts')
@@ -11,7 +11,7 @@
     window.route = "{{ route('priority') }}";
 </script>
 
-@vite('resources/js/projects.js')
+@vite('resources/js/dashboard.js')
 @endpush
 
 @section('content')

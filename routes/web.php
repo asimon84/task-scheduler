@@ -9,6 +9,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/priority', [DashboardController::class, 'updatePriority'])->name('priority');
 
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/table', [ProjectController::class, 'getTable'])->name('projects.get-table');
 Route::post('/project', [ProjectController::class, 'create'])->name('project.create');
 Route::get('/project/{id}', [ProjectController::class, 'show'])->name('project.show');

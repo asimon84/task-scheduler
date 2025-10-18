@@ -1,11 +1,11 @@
 @extends('partials.layout')
 
-@section('title', 'Dashboard')
+@section('title', 'Projects')
 
 @push('styles')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 
-@vite('resources/css/dashboard.css')
+@vite('resources/css/projects.css')
 @endpush
 
 @push('scripts')
