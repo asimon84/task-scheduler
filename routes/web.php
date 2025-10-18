@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/priority', [DashboardController::class, 'updatePriority'])->name('priority');
 
 Route::get('/projects/table', [ProjectController::class, 'getTable'])->name('projects.get-table');
 Route::post('/project', [ProjectController::class, 'create'])->name('project.create');
@@ -18,7 +19,6 @@ Route::post('/project/{id}', [ProjectController::class, 'edit'])->name('project.
 Route::delete('/project/{id}', [ProjectController::class, 'delete'])->name('project.delete');
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
-Route::post('/tasks/priority', [TaskController::class, 'updatePriority'])->name('tasks.priority');
 Route::get('/tasks/table', [TaskController::class, 'getTable'])->name('tasks.get-table');
 Route::post('/task', [TaskController::class, 'create'])->name('task.create');
 Route::get('/task/{id}', [TaskController::class, 'show'])->name('task.show');

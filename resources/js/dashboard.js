@@ -1,152 +1,36 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('input[name="_token"]').val()
-    }
-});
-
-new DataTable('#projectsTable', {
-    processing: true,
-    serverSide: true,
-    ajax: window.route,
-    columns: [
-        {data: 'id', name: 'id', searchable: true},
-        {data: 'name', name: 'name', searchable: true},
-        {data: 'description', name: 'description', className: 'truncate-text', searchable: true},
-        {data: 'actions', name: 'actions', orderable: false, searchable: false}
-    ]
-});
-
-new bootstrap.Modal(document.getElementById('projectModal'));
-
-$.callCreateModal = function () {
-    var modalId = $('#project-modal-id');
-    var modalName = $('#project-modal-name');
-    var modalDescription = $('#project-modal-description');
-
-    modalName.prop('disabled', false);
-    modalDescription.prop('disabled', false);
-
-    modalId.val('');
-    modalName.val('');
-    modalDescription.val('');
-
-    $('#projectModal').modal('show');
-};
-
-$.callModal = function (id, disabled) {
-    var modalId = $('#project-modal-id');
-    var modalName = $('#project-modal-name');
-    var modalDescription = $('#project-modal-description');
-
-    modalName.prop('disabled', disabled);
-    modalDescription.prop('disabled', disabled);
-
-    modalId.val('');
-    modalName.val('');
-    modalDescription.val('');
-
-    $.ajax({
-        url: '/project/' + id,
-        type: "GET",
-        dataType: 'json',
-        success: function (data) {
-            // console.log('Data received:', data);
-            modalId.val(data.id);
-            modalName.val(data.name);
-            modalDescription.val(data.description);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('AJAX error:', textStatus, errorThrown);
+$(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
         }
     });
-};
 
-$.createRecord = function () {
-    $.ajax({
-        url: '/project/' + $('#project-modal-id').val(),
-        type: "POST",
-        dataType: 'json',
-        data: {
-            name: $('#project-modal-name').val(),
-            description: $('#project-modal-description').val()
-        },
-        success: function (data) {
-            // console.log('Data received:', data);
-            $('#projectModal').modal('hide');
-            $('#projectsTable').DataTable().draw();
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('AJAX error:', textStatus, errorThrown);
+    $(".list-group").sortable({
+        connectWith: '.list-group',
+        opacity: 0.6,
+        cursor: 'move',
+        update: function(event, ui) {
+            console.log($(this).children('li'));
+
+            // var newOrder = $(this).sortable("toArray");
+            // console.log('projectId='+$(this).data('projectId'));
+            // console.log('taskId='+ui.item.data('taskId'));
+            //
+            // $.ajax({
+            //     url: window.route,
+            //     type: "POST",
+            //     data: {
+            //         order: newOrder
+            //     },
+            //     success: function(response) {
+            //         console.log("Order updated successfully:", response);
+            //
+            //
+            //     },
+            //     error: function(xhr, status, error) {
+            //         console.error("Error updating order:", error);
+            //     }
+            // });
         }
     });
-};
-
-$.editRecord = function () {
-    $.ajax({
-        url: '/project/' + $('#project-modal-id').val(),
-        type: "PUT",
-        dataType: 'json',
-        data: {
-            name: $('#project-modal-name').val(),
-            description: $('#project-modal-description').val()
-        },
-        success: function (data) {
-            // console.log('Data received:', data);
-            $('#projectModal').modal('hide');
-            $('#projectsTable').DataTable().draw();
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('AJAX error:', textStatus, errorThrown);
-        }
-    });
-};
-
-$.deleteRecord = function (id, table, tr) {
-    $.ajax({
-        url: '/project/' + id,
-        type: "DELETE",
-        dataType: 'json',
-        success: function (data) {
-            // console.log('Data received:', data);
-            table.DataTable().row(tr).remove().draw();
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.error('AJAX error:', textStatus, errorThrown);
-        }
-    });
-};
-
-$(document).on('click', '#create-button', function () {
-    $('#save-button').show();
-    $.callCreateModal();
-});
-
-$(document).on('click', '.view-record', function () {
-    window.location = '/project/'+$(this).data('id')+'/schedule';
-});
-
-$(document).on('click', '.edit-record', function () {
-    $('#save-button').show();
-    $.callModal($(this).data('id'), false);
-});
-
-$(document).on('click', '#save-button', function () {
-    var modalId = $('#project-modal-id');
-
-    if(modalId.val().length === 0) {
-        var modalName = $('#project-modal-name');
-        var modalDescription = $('#project-modal-description');
-
-        if(modalName.val().length === 0 || modalDescription.val().length === 0) {
-            alert('Please enter a name and description for this project.')
-        } else {
-            $.createRecord();
-        }
-    } else {
-        $.editRecord();
-    }
-});
-
-$(document).on('click', '.delete-record', function () {
-    $.deleteRecord($(this).data('id'), $('#projectsTable'), $(this).closest('tr'));
 });

@@ -16,4 +16,15 @@ class DashboardController extends Controller
     public function index(Request $request) {
         return view('dashboard', []);
     }
+
+    /**
+     * Update tasks' projects and priorities
+     *
+     * @param Request $request
+     *
+     * @return bool
+     */
+    public function updatePriority(Request $request):bool {
+        return $request->get('order');
+    }
 }

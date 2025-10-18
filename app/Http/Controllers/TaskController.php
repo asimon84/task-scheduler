@@ -22,18 +22,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Update tasks' projects and priorities
-     *
-     * @param Request $request
-     * @param array $data
-     *
-     * @return bool
-     */
-    public function updatePriority(Request $request, array $data):bool {
-        return false;
-    }
-
-    /**
      * Get data for tasks table
      *
      * @param Request $request
