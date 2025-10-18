@@ -18,6 +18,7 @@ Route::post('/project/{id}', [ProjectController::class, 'edit'])->name('project.
 Route::delete('/project/{id}', [ProjectController::class, 'delete'])->name('project.delete');
 
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks');
+Route::post('/tasks/priority', [TaskController::class, 'updatePriority'])->name('tasks.priority');
 Route::get('/tasks/table', [TaskController::class, 'getTable'])->name('tasks.get-table');
 Route::post('/task', [TaskController::class, 'create'])->name('task.create');
 Route::get('/task/{id}', [TaskController::class, 'show'])->name('task.show');

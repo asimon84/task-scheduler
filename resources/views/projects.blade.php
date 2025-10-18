@@ -8,7 +8,7 @@
 
 @push('scripts')
     <script>
-        window.route = "{{ route('projects.get-table') }}";
+        window.route = "{{ route('tasks.priority') }}";
     </script>
 
     @vite('resources/js/projects.js')
@@ -17,6 +17,12 @@
 @section('content')
     <div>
         <h3>Projects</h3>
+
+        <ul id="mySortableList" class="list-group">
+            <li class="list-group-item">Item 1</li>
+            <li class="list-group-item">Item 2</li>
+            <li class="list-group-item">Item 3</li>
+        </ul>
 
         <ul id="mySortableList" class="list-group">
             <li class="list-group-item">Item 1</li>
