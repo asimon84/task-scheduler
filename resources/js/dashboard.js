@@ -122,7 +122,7 @@ $(document).on('click', '#create-button', function () {
 });
 
 $(document).on('click', '.view-record', function () {
-    window.location = '/project/'+$(this).data('id');
+    window.location = '/project/'+$(this).data('id')+'/schedule';
 });
 
 $(document).on('click', '.edit-record', function () {

@@ -4,6 +4,8 @@
 
 @push('styles')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+
+    @vite('resources/css/projects.css')
 @endpush
 
 @push('scripts')
@@ -13,7 +15,7 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 
-    @vite('resources/js/projects-table.js')
+    @vite('resources/js/projects.js')
 @endpush
 
 @section('content')

@@ -11,6 +11,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/projects/table', [ProjectController::class, 'getTable'])->name('projects.get-table');
 Route::post('/project', [ProjectController::class, 'create'])->name('project.create');
 Route::get('/project/{id}', [ProjectController::class, 'show'])->name('project.show');
+Route::get('/project/{id}/schedule', [ProjectController::class, 'index'])->name('project.schedule');
 Route::put('/project/{id}', [ProjectController::class, 'edit'])->name('project.update');
 Route::patch('/project/{id}', [ProjectController::class, 'edit'])->name('project.update');
 Route::post('/project/{id}', [ProjectController::class, 'edit'])->name('project.update');
