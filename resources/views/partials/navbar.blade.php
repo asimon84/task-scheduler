@@ -12,9 +12,6 @@
                     <a class="nav-link {{ Route::currentRouteNamed('dashboard') ? 'active' : '' }}" href="{{ url('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('projects') ? 'active' : '' }}" href="{{ url('projects') }}">Projects</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteNamed('tasks') ? 'active' : '' }}" href="{{ url('tasks') }}">Tasks</a>
                 </li>
             </ul>
