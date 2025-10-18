@@ -7,8 +7,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/dashboard.css',
                 'resources/css/tasks.css',
                 'resources/js/app.js',
+                'resources/js/dashboard.js',
                 'resources/js/projects-table.js',
                 'resources/js/tasks-table.js'
             ],
