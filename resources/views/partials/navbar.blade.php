@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('dashboard') ? 'active' : '' }}" href="{{ url('dashboard') }}">Dashboard</a>
+                    <a class="nav-link {{ (Route::currentRouteNamed('dashboard') || str_contains(Route::current()->getName(), 'product')) ? 'active' : '' }}" href="{{ url('dashboard') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteNamed('tasks') ? 'active' : '' }}" href="{{ url('tasks') }}">Tasks</a>
