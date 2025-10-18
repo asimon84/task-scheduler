@@ -11,7 +11,6 @@ export default defineConfig({
                 'resources/css/tasks.css',
                 'resources/js/app.js',
                 'resources/js/dashboard.js',
-                'resources/js/projects-table.js',
                 'resources/js/tasks-table.js'
             ],
             refresh: true,
