@@ -25,7 +25,7 @@
 
             <ul id="mySortableList" class="list-group" data-project-id="null">
                 @foreach($unassignedTasks as $unassignedTask)
-                    <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}"><strong>Name: </strong>{{ $unassignedTask->name }}</li>
+                    <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}"><strong>Name: </strong>{{ $unassignedTask->name }} &nbsp; <strong>Priority: </strong><span id="priority-task-{{ $unassignedTask->id }}">N/A</span></li>
                 @endforeach
                 &nbsp;
             </ul>

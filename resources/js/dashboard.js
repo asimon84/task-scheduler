@@ -27,10 +27,14 @@ $(document).ready(function() {
                     taskIds: taskIds
                 },
                 success: function(response) {
-                    // console.log("Order updated successfully:", response);
+                    console.log("Order updated successfully:", response);
 
                     response.forEach(function(data) {
-                        $('#priority-task-' + data.id).html(data.priority);
+                        if (data.project_id === null) {
+                            $('#priority-task-' + data.id).html('N/A');
+                        } else {
+                            $('#priority-task-' + data.id).html(data.priority);
+                        }
                     });
                 },
                 error: function(xhr, status, error) {
