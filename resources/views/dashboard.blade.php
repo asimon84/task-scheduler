@@ -38,7 +38,7 @@
 
                 <ul id="mySortableList" class="list-group" data-project-id="{{ $project->id }}">
                     @foreach($project->tasks as $task)
-                        <li class="list-group-item" data-task-id="{{ $task->id }}">{{ $task->name }}</li>
+                        <li class="list-group-item" data-task-id="{{ $task->id }}">{{ $task->name }} - Priority <span id="priority-task-{{ $task->id }}">{{ $task->priority }}</span></li>
                     @endforeach
                 </ul>
 

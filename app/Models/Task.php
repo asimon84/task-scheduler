@@ -19,6 +19,7 @@ class Task extends Model
     protected $fillable = [
         'name',
         'description',
+        'priority',
     ];
 
     /**
@@ -40,16 +41,17 @@ class Task extends Model
         return [
             'name' => 'string',
             'description' => 'string',
+            'priority' => 'integer',
         ];
     }
 
     /**
-     * Project Task Links
+     * Project Link
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function projectTaskLinks()
+    public function project()
     {
-        return $this->hasOne(ProjectTaskLink::class);
+        return $this->hasOne(Project::class);
     }
 }

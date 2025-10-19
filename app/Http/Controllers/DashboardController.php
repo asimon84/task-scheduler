@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
-use App\Models\ProjectTaskLink;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -17,7 +16,7 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function index(Request $request) {
-        $unassignedTasks = Task::doesntHave('projectTaskLinks')->get();
+        $unassignedTasks = Task::where('project_id', null)->get();
         $projects = Project::all();
 
         return view('dashboard', [
@@ -34,17 +33,17 @@ class DashboardController extends Controller
      * @return bool
      */
     public function updatePriority(Request $request):bool {
-        $projectId = $request->get('projectId');
-        $taskIds = $request->get('taskIds');
-
-        ProjectTaskLink::whereIn('task_id', $taskIds)->delete();
-
-        $data = [];
-
-        for ($i = 0; $i < count($taskIds); $i++) {
-            $data[] = ['project_id' => $projectId, 'task_id' => $taskIds[$i], 'priority' => ($i + 1)];
-        }
-
-        return ProjectTaskLink::insert($data);
+//        $projectId = $request->get('projectId');
+//        $taskIds = $request->get('taskIds');
+//
+//        ProjectTaskLink::whereIn('task_id', $taskIds)->delete();
+//
+//        $data = [];
+//
+//        for ($i = 0; $i < count($taskIds); $i++) {
+//            $data[] = ['project_id' => $projectId, 'task_id' => $taskIds[$i], 'priority' => ($i + 1)];
+//        }
+//
+//        return ProjectTaskLink::insert($data);
     }
 }

@@ -50,13 +50,6 @@ class Project extends Model
      */
     public function tasks()
     {
-        return $this->hasManyThrough(
-            Task::class,
-            ProjectTaskLink::class,
-            'task_id',
-            'id',
-            'id',
-            'project_id'
-        );
+        return $this->hasMany(Task::class);
     }
 }
