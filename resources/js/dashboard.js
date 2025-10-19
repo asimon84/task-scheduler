@@ -29,7 +29,9 @@ $(document).ready(function() {
                 success: function(response) {
                     console.log("Order updated successfully:", response);
 
-
+                    response.forEach(function(data) {
+                        $('#priority-task-' + data.id).html(data.priority);
+                    });
                 },
                 error: function(xhr, status, error) {
                     console.error("Error updating order:", error);

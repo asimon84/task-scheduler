@@ -29,22 +29,26 @@ class DashboardController extends Controller
     }
 
     /**
-     * Update tasks' projects and priorities
+     * Update Tasks' Project IDs and priorities, return new values
      *
      * @param Request $request
      *
-     * @return bool
+     * @return array
      */
-    public function updatePriority(Request $request):bool {
+    public function updatePriority(Request $request):array {
         $projectId = $request->get('projectId');
         $taskIds = $request->get('taskIds');
 
         $data = [];
 
-        for ($i = 0; $i < count($taskIds); $i++) {
-            $data[] = ['id' => $taskIds[$i], 'project_id' => $projectId, 'priority' => ($i + 1)];
+        if(!empty($taskIds)) {
+            for ($i = 0; $i < count($taskIds); $i++) {
+                $data[] = ['id' => $taskIds[$i], 'project_id' => $projectId, 'priority' => ($i + 1)];
+            }
+
+            Task::upsert($data, ['id'], ['project_id', 'priority']);
         }
 
-        return Task::upsert($data, ['id'], ['project_id', 'priority']);
+        return $data;
     }
 }
