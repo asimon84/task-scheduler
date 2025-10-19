@@ -21,12 +21,13 @@
         <br/>
 
         @if(!empty($unassignedTasks))
-            <h6>Unassigned Tasks</h6>
+            <h5>Unassigned Tasks</h5>
 
             <ul id="mySortableList" class="list-group" data-project-id="0">
                 @foreach($unassignedTasks as $unassignedTask)
-                    <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}">{{ $unassignedTask->name }}</li>
+                    <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}"><strong>Name: </strong>{{ $unassignedTask->name }}</li>
                 @endforeach
+                &nbsp;
             </ul>
 
             <br/>
@@ -34,12 +35,13 @@
 
         @if(!empty($projects))
             @foreach($projects as $project)
-                <h6>{{ $project->name }}</h6>
+                <h5>{{ $project->name }}</h5>
 
                 <ul id="mySortableList" class="list-group" data-project-id="{{ $project->id }}">
                     @foreach($project->tasks as $task)
-                        <li class="list-group-item" data-task-id="{{ $task->id }}">{{ $task->name }} - Priority <span id="priority-task-{{ $task->id }}">{{ $task->priority }}</span></li>
+                        <li class="list-group-item" data-task-id="{{ $task->id }}"><strong>Name: </strong>{{ $task->name }} &nbsp; <strong>Priority: </strong><span id="priority-task-{{ $task->id }}">{{ $task->priority }}</span></li>
                     @endforeach
+                    &nbsp;
                 </ul>
 
                 <br/>

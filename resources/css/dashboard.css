@@ -1,6 +1,6 @@
 #project-modal {
-    width: 100%;
-}
+     width: 100%;
+ }
 
 #project-modal tbody tr {
     padding: 10px;
@@ -16,4 +16,8 @@
 #project-modal tbody tr td textarea
 {
     width: 100%;
+}
+
+.list-group-item {
+    cursor: pointer;
 }
