@@ -10,27 +10,31 @@ $(document).ready(function() {
         opacity: 0.6,
         cursor: 'move',
         update: function(event, ui) {
-            console.log($(this).children('li'));
+            var projectId = $(this).data('projectId');
+            var taskIds = [];
 
-            // var newOrder = $(this).sortable("toArray");
-            // console.log('projectId='+$(this).data('projectId'));
-            // console.log('taskId='+ui.item.data('taskId'));
-            //
-            // $.ajax({
-            //     url: window.route,
-            //     type: "POST",
-            //     data: {
-            //         order: newOrder
-            //     },
-            //     success: function(response) {
-            //         console.log("Order updated successfully:", response);
-            //
-            //
-            //     },
-            //     error: function(xhr, status, error) {
-            //         console.error("Error updating order:", error);
-            //     }
-            // });
+            $(this).children('li').each(function(index, value) {
+                taskIds.push($(this).data('taskId'));
+            });
+
+            // console.log(taskIds);
+
+            $.ajax({
+                url: window.route,
+                type: "POST",
+                data: {
+                    projectId: projectId,
+                    taskIds: taskIds
+                },
+                success: function(response) {
+                    console.log("Order updated successfully:", response);
+
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error updating order:", error);
+                }
+            });
         }
     });
 });

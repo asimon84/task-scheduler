@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProjectTaskLink;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -25,6 +26,17 @@ class DashboardController extends Controller
      * @return bool
      */
     public function updatePriority(Request $request):bool {
-        return $request->get('order');
+        $projectId = $request->get('projectId');
+        $taskIds = $request->get('taskIds');
+
+        ProjectTaskLink::whereIn('task_id', $taskIds)->delete();
+
+        $data = [];
+
+        for ($i = 0; $i < count($taskIds); $i++) {
+            $data[] = ['project_id' => $projectId, 'task_id' => $taskIds[$i], 'priority' => ($i + 1)];
+        }
+
+        return ProjectTaskLink::insert($data);
     }
 }
