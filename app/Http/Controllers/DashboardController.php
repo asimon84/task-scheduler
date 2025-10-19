@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use App\Models\ProjectTaskLink;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,7 +17,13 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\View\View
      */
     public function index(Request $request) {
-        return view('dashboard', []);
+        $unassignedTasks = Task::doesntHave('projectTaskLinks')->get();
+        $projects = Project::all();
+
+        return view('dashboard', [
+            'unassignedTasks' => $unassignedTasks,
+            'projects' => $projects,
+        ]);
     }
 
     /**

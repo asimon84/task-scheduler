@@ -18,16 +18,32 @@
     <div>
         <h3>Dashboard</h3>
 
-        <ul id="mySortableList" class="list-group" data-project-id="1">
-            <li class="list-group-item" data-task-id="1">Item 1</li>
-            <li class="list-group-item" data-task-id="2">Item 2</li>
-            <li class="list-group-item" data-task-id="3">Item 3</li>
-        </ul>
+        <br/>
 
-        <ul id="mySortableList" class="list-group" data-project-id="2">
-            <li class="list-group-item" data-task-id="1">Item 1</li>
-            <li class="list-group-item" data-task-id="2">Item 2</li>
-            <li class="list-group-item" data-task-id="3">Item 3</li>
-        </ul>
+        @if(!empty($unassignedTasks))
+            <h6>Unassigned Tasks</h6>
+
+            <ul id="mySortableList" class="list-group" data-project-id="0">
+                @foreach($unassignedTasks as $unassignedTask)
+                    <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}">{{ $unassignedTask->name }}</li>
+                @endforeach
+            </ul>
+
+            <br/>
+        @endif
+
+        @if(!empty($projects))
+            @foreach($projects as $project)
+                <h6>{{ $project->name }}</h6>
+
+                <ul id="mySortableList" class="list-group" data-project-id="{{ $project->id }}">
+                    @foreach($project->tasks as $task)
+                        <li class="list-group-item" data-task-id="{{ $task->id }}">{{ $task->name }}</li>
+                    @endforeach
+                </ul>
+
+                <br/>
+            @endforeach
+        @endif
     </div>
 @endsection

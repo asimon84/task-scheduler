@@ -42,4 +42,21 @@ class Project extends Model
             'description' => 'string',
         ];
     }
+
+    /**
+     * Linked Tasks
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function tasks()
+    {
+        return $this->hasManyThrough(
+            Task::class,
+            ProjectTaskLink::class,
+            'task_id',
+            'id',
+            'id',
+            'project_id'
+        );
+    }
 }

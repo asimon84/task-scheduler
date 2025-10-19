@@ -42,4 +42,14 @@ class Task extends Model
             'description' => 'string',
         ];
     }
+
+    /**
+     * Project Task Links
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function projectTaskLinks()
+    {
+        return $this->hasOne(ProjectTaskLink::class);
+    }
 }
