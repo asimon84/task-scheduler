@@ -3,19 +3,19 @@
 @section('title', 'Projects')
 
 @push('styles')
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css">
 
-@vite('resources/css/projects.css')
+    @vite('resources/css/projects.css')
 @endpush
 
 @push('scripts')
-<script>
-    window.route = "{{ route('projects.get-table') }}";
-</script>
+    <script>
+        window.route = "{{ route('projects.get-table') }}";
+    </script>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.3.4/js/dataTables.min.js"></script>
 
-@vite('resources/js/projects.js')
+    @vite('resources/js/projects.js')
 @endpush
 
 @section('content')

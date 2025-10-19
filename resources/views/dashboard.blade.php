@@ -3,15 +3,15 @@
 @section('title', 'Dashboard')
 
 @push('styles')
-@vite('resources/css/dashboard.css')
+    @vite('resources/css/dashboard.css')
 @endpush
 
 @push('scripts')
-<script>
-    window.route = "{{ route('priority') }}";
-</script>
+    <script>
+        window.route = "{{ route('priority') }}";
+    </script>
 
-@vite('resources/js/dashboard.js')
+    @vite('resources/js/dashboard.js')
 @endpush
 
 @section('content')
