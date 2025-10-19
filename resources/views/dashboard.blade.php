@@ -23,7 +23,7 @@
         @if(!empty($unassignedTasks))
             <h5>Unassigned Tasks</h5>
 
-            <ul id="mySortableList" class="list-group" data-project-id="0">
+            <ul id="mySortableList" class="list-group" data-project-id="null">
                 @foreach($unassignedTasks as $unassignedTask)
                     <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}"><strong>Name: </strong>{{ $unassignedTask->name }}</li>
                 @endforeach
