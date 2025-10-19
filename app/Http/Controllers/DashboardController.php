@@ -17,7 +17,10 @@ class DashboardController extends Controller
      */
     public function index(Request $request) {
         $unassignedTasks = Task::where('project_id', null)->get();
-        $projects = Project::all();
+
+        $projects = Project::with(['tasks' => function ($query) {
+            $query->orderBy('priority', 'asc');
+        }])->get();
 
         return view('dashboard', [
             'unassignedTasks' => $unassignedTasks,
