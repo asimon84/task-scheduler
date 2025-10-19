@@ -16,7 +16,7 @@
 
 @section('content')
     <div>
-        <h3>Projects</h3>
+        <h3>Task Scheduler Dashboard</h3>
 
         <ul id="mySortableList" class="list-group" data-project-id="1">
             <li class="list-group-item" data-task-id="1">Item 1</li>
