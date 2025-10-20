@@ -20,7 +20,9 @@
 
 @section('content')
     <div>
-        <h3>Projects</h3>
+        <div class="pb-3 mb-4 border-bottom">
+            <h1>Projects</h1>
+        </div>
 
         <!-- Buttons -->
         <div class="d-flex justify-content-end">
