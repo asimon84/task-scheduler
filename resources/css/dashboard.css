@@ -25,3 +25,8 @@
 .card {
     margin: 20px;
 }
+
+#projects-dropdown {
+    cursor: pointer;
+    margin: 20px;
+}

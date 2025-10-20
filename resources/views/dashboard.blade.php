@@ -16,17 +16,28 @@
 
 @section('content')
     <div>
-        <h3>Dashboard</h3>
+        <div class="pb-3 mb-4 border-bottom">
+            <h1>Dashboard</h1>
+        </div>
 
-        <br/>
+        <!-- Project Dropdown -->
+        <div class="d-flex justify-content-end">
+            <select id="projects-dropdown" class="form-select form-select-lg mb-3">
+                <option value="">View All Projects</option>
+                @foreach($projects as $project)
+                    <option value="{{ $project->id }}">{{ $project->name }}</option>
+                @endforeach
+            </select>
+        </div>
 
+        <!-- Unassigned Task List -->
         @if(!empty($unassignedTasks))
             <div class="card">
                 <div class="card-header">
                     Unassigned Tasks
                 </div>
                 <div class="card-body">
-                    <ul id="mySortableList" class="list-group" data-project-id="null">
+                    <ul class="list-group" data-project-id="null">
                         @foreach($unassignedTasks as $unassignedTask)
                             <li class="list-group-item" data-task-id="{{ $unassignedTask->id }}"><strong>Name: </strong>{{ $unassignedTask->name }} &nbsp; <strong>Priority: </strong><span id="priority-task-{{ $unassignedTask->id }}">N/A</span></li>
                         @endforeach
@@ -36,14 +47,15 @@
             </div>
         @endif
 
-        @if(!empty($projects))
+        <!-- Projects List -->
+        <div id="projects-card">
             @foreach($projects as $project)
                 <div class="card">
                     <div class="card-header">
                         {{ $project->name }}
                     </div>
                     <div class="card-body">
-                        <ul id="mySortableList" class="list-group" data-project-id="{{ $project->id }}">
+                        <ul class="list-group" data-project-id="{{ $project->id }}">
                             @foreach($project->tasks as $task)
                                 <li class="list-group-item" data-task-id="{{ $task->id }}"><strong>Name: </strong>{{ $task->name }} &nbsp; <strong>Priority: </strong><span id="priority-task-{{ $task->id }}">{{ $task->priority }}</span></li>
                             @endforeach
@@ -52,6 +64,6 @@
                     </div>
                 </div>
             @endforeach
-        @endif
+        </div>
     </div>
 @endsection

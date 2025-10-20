@@ -5,6 +5,12 @@ $(document).ready(function() {
         }
     });
 
+    $('#projects-dropdown').on('change', function () {
+        // alert($(this).val());
+
+
+    });
+
     $(".list-group").sortable({
         connectWith: '.list-group',
         opacity: 0.6,
