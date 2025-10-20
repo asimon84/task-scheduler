@@ -8,7 +8,8 @@
 
 @push('scripts')
     <script>
-        window.route = "{{ route('priority') }}";
+        window.projectsListRoute = "{{ route('projects-list') }}";
+        window.priorityRoute = "{{ route('priority') }}";
     </script>
 
     @vite('resources/js/dashboard.js')
@@ -23,7 +24,7 @@
         <!-- Project Dropdown -->
         <div class="d-flex justify-content-end">
             <select id="projects-dropdown" class="form-select form-select-lg mb-3">
-                <option value="">View All Projects</option>
+                <option value="" selected="selected">View All Projects</option>
                 @foreach($projects as $project)
                     <option value="{{ $project->id }}">{{ $project->name }}</option>
                 @endforeach
@@ -49,21 +50,7 @@
 
         <!-- Projects List -->
         <div id="projects-card">
-            @foreach($projects as $project)
-                <div class="card">
-                    <div class="card-header">
-                        {{ $project->name }}
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group" data-project-id="{{ $project->id }}">
-                            @foreach($project->tasks as $task)
-                                <li class="list-group-item" data-task-id="{{ $task->id }}"><strong>Name: </strong>{{ $task->name }} &nbsp; <strong>Priority: </strong><span id="priority-task-{{ $task->id }}">{{ $task->priority }}</span></li>
-                            @endforeach
-                            &nbsp;
-                        </ul>
-                    </div>
-                </div>
-            @endforeach
+
         </div>
     </div>
 @endsection

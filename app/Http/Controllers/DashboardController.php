@@ -51,4 +51,28 @@ class DashboardController extends Controller
 
         return $data;
     }
+
+    /**
+     * Get List of Projects for Dashboard
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory
+     */
+    public function getProjectList(Request $request)
+    {
+        $projectId = $request->get('projectId');
+
+        if (empty($projectId)) {
+            $projects = Project::with(['tasks' => function ($query) {
+                $query->orderBy('priority', 'asc');
+            }])->get();
+        } else {
+            $projects = Project::where('id', $projectId)->with(['tasks' => function ($query) {
+                $query->orderBy('priority', 'asc');
+            }])->get();
+        }
+
+        return view('partials.projects-list', compact('projects'));
+    }
 }

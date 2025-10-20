@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/projects', [DashboardController::class, 'getProjectList'])->name('projects-list');
 Route::post('/priority', [DashboardController::class, 'updatePriority'])->name('priority');
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
