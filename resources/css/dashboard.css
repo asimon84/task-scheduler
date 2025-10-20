@@ -21,3 +21,7 @@
 .list-group-item {
     cursor: pointer;
 }
+
+.card {
+    margin: 20px;
+}
