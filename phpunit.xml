@@ -8,14 +8,15 @@
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
         </testsuite>
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
-    </testsuites>
-    <source>
-        <include>
-            <directory>app</directory>
-        </include>
+        <testsuite name="Behavior">
+            <directory>tests/Behavior</directory>
+        </testsuite>
     </source>
     <php>
         <env name="APP_ENV" value="testing"/>
