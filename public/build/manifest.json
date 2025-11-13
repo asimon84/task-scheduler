@@ -1,0 +1,58 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-B35-Dwia.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/dashboard.css": {
+    "file": "assets/dashboard-P0OgOHC3.css",
+    "src": "resources/css/dashboard.css",
+    "isEntry": true,
+    "names": [
+      "dashboard.css"
+    ]
+  },
+  "resources/css/projects.css": {
+    "file": "assets/projects-P2qjmrth.css",
+    "src": "resources/css/projects.css",
+    "isEntry": true,
+    "names": [
+      "projects.css"
+    ]
+  },
+  "resources/css/tasks.css": {
+    "file": "assets/tasks-7wHYu0l_.css",
+    "src": "resources/css/tasks.css",
+    "isEntry": true,
+    "names": [
+      "tasks.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-Bj43h_rG.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard.js": {
+    "file": "assets/dashboard-CqdgLG8z.js",
+    "name": "dashboard",
+    "src": "resources/js/dashboard.js",
+    "isEntry": true
+  },
+  "resources/js/projects.js": {
+    "file": "assets/projects-C7qOitVy.js",
+    "name": "projects",
+    "src": "resources/js/projects.js",
+    "isEntry": true
+  },
+  "resources/js/tasks-table.js": {
+    "file": "assets/tasks-table-BzjruUpC.js",
+    "name": "tasks-table",
+    "src": "resources/js/tasks-table.js",
+    "isEntry": true
+  }
+}
